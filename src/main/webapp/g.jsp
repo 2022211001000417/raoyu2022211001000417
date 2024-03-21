@@ -11,15 +11,15 @@
     <title>Title</title>
 </head>
 <body>
-<form>
-    username<input type="text"><br>
-    password<input type="password"><br>
-    email<input type="text"><br>
-    birthdate<input type="text"><br>
-    <input type="radio" name="sex">男
-    <input type="radio" name="sex">女
-    <input type="radio" name="sex">保密<br>
-    <button type="submit">提交</button>
+<form action="week3" method="post">
+    username<input type="text" name="username"><br>
+    password<input type="password" name="password"><br>
+    email<input type="text" name="email"><br>
+    birthdate<input type="text" name="birthdate">(yyyy-yy-yy)<br>
+    <input type="radio" name="sex">male
+    <input type="radio" name="sex">female
+    <input type="radio" name="sex">privary<br>
+    <button type="submit">submit</button>
 </form>
 </body>
 </html>

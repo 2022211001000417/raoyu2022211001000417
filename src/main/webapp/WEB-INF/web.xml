@@ -7,8 +7,16 @@
         <servlet-name>any</servlet-name>
         <servlet-class>com.raoyu.week2.homework.raoyu1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.raoyu.week3.demo.LifeCycleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>any</servlet-name>
         <url-pattern>/week2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/week3</url-pattern>
     </servlet-mapping>
 </web-app>
