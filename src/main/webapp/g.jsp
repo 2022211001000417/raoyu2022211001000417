@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="week3" method="post">
+<form action="register" method="post">
     username<input type="text" name="username"><br>
     password<input type="password" name="password"><br>
     email<input type="text" name="email"><br>
@@ -20,6 +20,7 @@
     <input type="radio" name="sex">female
     <input type="radio" name="sex">privary<br>
     <button type="submit">submit</button>
+    <p></p>
 </form>
 </body>
 </html>
