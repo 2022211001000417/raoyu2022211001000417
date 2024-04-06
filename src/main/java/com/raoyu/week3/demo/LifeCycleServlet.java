@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name="form",urlPatterns = "/Register")
+@WebServlet(name="form",urlPatterns = "/form")
 
 public class LifeCycleServlet extends HttpServlet {
    /* Connection con=null;

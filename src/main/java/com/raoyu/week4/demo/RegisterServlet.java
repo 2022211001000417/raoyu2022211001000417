@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Raoyu1");
        try {
-           /*String sql="insert into usertable(username,email,gender,birthdate) select 'raoyu','123@qq.com','male','2004-07-12'";
+           /*String sql="insert into usertable(username,password,email,gender,birthdate) select 'raoyu','123','123@qq.com','male','2004-07-12'";
             stmt= con.createStatement();
             int count= stmt.executeUpdate(sql);
             if(count>0) {
@@ -60,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
             out.println("<tr>");
             out.println("<td>id<td>");
             out.println("<td>username<td>");
+           out.println("<td>password<td>");
             out.println("<td>email<td>");
             out.println("<td>gender<td>");
             out.println("<td>birthdate<td>");
@@ -69,6 +70,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<tr>");
                 out.println("<td>"+rs.getInt("id")+"<td>");
                 out.println("<td>"+rs.getString("username")+"<td>");
+                out.println("<td>"+rs.getString("password")+"<td>");
                 out.println("<td>"+rs.getString("email")+"<td>");
                 out.println("<td>"+rs.getString("gender")+"<td>");
                 out.println("<td>"+rs.getString("birthdate")+"<td>");

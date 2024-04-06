@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
+<h1><%= "This is my register JSP page" %>
+</h1>
 <form action="register" method="post">
     username<input type="text" name="username"><br>
     password<input type="password" name="password"><br>
@@ -22,5 +25,6 @@
     <button type="submit">submit</button>
     <p></p>
 </form>
+<%@include file="footer.jsp"%>
 </body>
 </html>
