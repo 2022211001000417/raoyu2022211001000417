@@ -19,9 +19,9 @@
     password<input type="password" name="password"><br>
     email<input type="text" name="email"><br>
     birthdate<input type="text" name="birthdate">(yyyy-yy-yy)<br>
-    <input type="radio" name="sex">male
-    <input type="radio" name="sex">female
-    <input type="radio" name="sex">privary<br>
+    <input type="radio" name="gender" value="male">male
+    <input type="radio" name="gender" value="female">female
+    <input type="radio" name="gender" value="privary">privary<br>
     <button type="submit">submit</button>
     <p></p>
 </form>

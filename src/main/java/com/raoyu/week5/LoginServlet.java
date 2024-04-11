@@ -44,19 +44,29 @@ public class LoginServlet extends HttpServlet {
             PreparedStatement pstmt=con.prepareStatement(sql1);
             pstmt.setString(1,username);
             pstmt.setString(2,password);
+
             rs= pstmt.executeQuery();
            // System.out.println(rs.next());
             PrintWriter out= response.getWriter();
             if(rs.next()){
-                out.println("<h1>Login Success!!!</h1>");
-                out.println("Welcome,"+username);
+                //out.println("<h1>Login Success!!!</h1>");
+                //out.println("<h1>"+"Welcome,"+username+"</h1>");
+                request.setAttribute("id",rs.getInt("id"));
+                request.setAttribute("username",rs.getString("username"));
+                request.setAttribute("password",rs.getString("password"));
+                request.setAttribute("email",rs.getString("email"));
+                request.setAttribute("gender",rs.getString("gender"));
+                request.setAttribute("birthdate",rs.getString("birthdate"));
+                request.getRequestDispatcher("userinfo.jsp").forward(request,response);
             }else{
-                out.println("Username or Password Error!!!");
+               // out.println("Username or Password Error!!!");
+                request.setAttribute("message","Username or Password Error!!!");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             }
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        }/*finally {
             if (rs!=null){
                 try {
                     rs.close();
@@ -77,7 +87,7 @@ public class LoginServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
             }
-        }
+        }*/
 
 
     }
