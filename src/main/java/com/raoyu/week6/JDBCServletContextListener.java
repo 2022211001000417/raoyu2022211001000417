@@ -5,6 +5,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.sql.*;
+//在listener中使用context变量连接数据库
 @WebListener
 public class JDBCServletContextListener implements ServletContextListener {
 
@@ -19,7 +20,7 @@ public class JDBCServletContextListener implements ServletContextListener {
             Class.forName(driver);
            Connection con= DriverManager.getConnection(url,username,password);
             System.out.println("连接成功2"+con);
-            sce.getServletContext().setAttribute("con" ,con);
+            sce.getServletContext().setAttribute("con" ,con);//在request域中设置con用于使用
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

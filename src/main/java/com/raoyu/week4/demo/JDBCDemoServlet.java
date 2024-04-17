@@ -26,7 +26,7 @@ public class JDBCDemoServlet extends HttpServlet {
        // String url="jdbc:sqlserver://localhost;databaseName=userdb";
        // String username="sa";
         //String password="yl750382904729";
-        ServletConfig config=getServletConfig();
+       /* ServletConfig config=getServletConfig();
         String driver=config.getInitParameter("driver");
         String url=config.getInitParameter("url");
         String username=config.getInitParameter("username");
@@ -37,7 +37,7 @@ public class JDBCDemoServlet extends HttpServlet {
             System.out.println("连接成功"+con);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

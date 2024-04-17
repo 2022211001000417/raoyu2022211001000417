@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }*/
-       con= (Connection) getServletContext().getAttribute("con");
+       con= (Connection) getServletContext().getAttribute("con");//完成连接数据库
 
     }
 
@@ -100,13 +100,7 @@ public class RegisterServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
             }
-            if (con!=null){
-                try {
-                    con.close();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-            }
+
         }
 
     }

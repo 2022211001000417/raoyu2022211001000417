@@ -16,7 +16,7 @@ public class SearchServlet extends HttpServlet {
        // response.setHeader("content-type","text/html;charset=UTF-8");
         String txt= request.getParameter("txt");
         String search= request.getParameter("search");
-        System.out.println(txt);
+       // System.out.println(txt);
         if(txt.equals("")){
             response.sendRedirect("index.jsp");
         }else{
