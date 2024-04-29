@@ -25,6 +25,24 @@ public class Userdao implements IUserDao{
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
         //更新，where id=?
+        String sql = "update usertable set username=?,password=?,email=?,gender=?,birthdate=? where id=? ";
+        //  创建sql语句
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        //传入更新数据
+        pstmt.setString(1, user.getUsername());
+        pstmt.setString(2, user.getPassword());
+        pstmt.setString(3, user.getEmail());
+        pstmt.setString(4, user.getGender());
+        pstmt.setString(5, user.getBirthdate());
+        pstmt.setInt(6, user.getId());
+        //执行语句
+        pstmt.executeUpdate();
+
+
+
+
+
+
         return 0;
     }
 
@@ -39,6 +57,7 @@ public class Userdao implements IUserDao{
         //查询，where username=? and password=?
         String sql1 = "select*from usertable where username=? and password=?";
         PreparedStatement pstmt = con.prepareStatement(sql1);
+        //输入登录名和密码
         pstmt.setString(1,username);
         pstmt.setString(2,password);
         User user = null;
@@ -50,7 +69,7 @@ public class Userdao implements IUserDao{
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getDate("birthdate"));
+            user.setBirthdate(rs.getString("birthdate"));
         }
         return user;
     }

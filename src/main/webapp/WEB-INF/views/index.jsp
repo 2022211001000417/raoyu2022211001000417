@@ -6,6 +6,16 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
+<h1>Read all cookie</h1>
+<%
+    Cookie[] allCookies=request.getCookies();//give all cookies
+    if(allCookies!=null){
+        for(Cookie c:allCookies){
+            //get one by one
+            String cName=c.getName();
+            String cValue=c.getValue();
+            out.println("<br>"+cName+" ---- "+cValue);
+        }}%>
 <h2><%="Welcome to my online shop home page"%></h2>
 <form method="get" target="_blank" action="search">
     <input type="text" name="txt" size="30">

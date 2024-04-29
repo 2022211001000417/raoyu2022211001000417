@@ -108,4 +108,33 @@ metadata-complete="false">
         <welcome-file>home</welcome-file><!--设置默认的欢迎页面，当用户在浏览器中输入的URL不包含特定的Servlet名或JSP页面时，
         Web应用程序会显示《welcome-file-list》中配置的默认页面。-->
     </welcome-file-list>
+    <!--Filter Chaining-->
+    <!--按顺序进行连接-->
+    <!--1-->
+    <filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.raoyu.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <!--2-->
+    <filter>
+        <filter-name>LoggerFilter</filter-name>
+        <filter-class>com.raoyu.filter.LoggerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggerFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <!--3-->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.raoyu.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
 </web-app>

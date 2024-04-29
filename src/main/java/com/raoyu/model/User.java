@@ -1,6 +1,5 @@
 package com.raoyu.model;
 
-import java.util.Date;
 //user表的定义方便使用
 public class User {
     private int id;
@@ -8,12 +7,12 @@ public class User {
     private String password;
     private String email;
     private String gender;
-    private Date birthdate;
+    private String birthdate;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String email, String gender, Date birthdate) {
+    public User(int id, String username, String password, String email, String gender, String birthdate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -62,11 +61,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 

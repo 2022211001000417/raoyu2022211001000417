@@ -48,9 +48,36 @@ public class LoginServlet extends HttpServlet {
         try {
            User user= userdao.findByUsernamePassword(con,username,password);
            if(user!=null){
-               request.setAttribute("user",user);
+               /*Cookie c=new Cookie("sessionid",""+user.getId());//创建一个 cookie name是唯一的
+               //name value - x=5
+               // set age
+               c.setMaxAge(7*24*60*60); //设置到期时间七天 giving time -in 5  sec// 7*24*60*60 one week
+                //send it back to client - response
+               response.addCookie(c);*/
+               String rememberme=request.getParameter("rememberme");
+               if(rememberme!=null&&rememberme.equals("1")){
+                   //创建cookie
+                   Cookie usernamecookie=new Cookie("cusername",user.getUsername());
+                   Cookie passwordcookie=new Cookie("cpassword",user.getPassword());
+                   Cookie remembermecookie=new Cookie("crememberme",rememberme);
+                   //设置到期时间
+                   usernamecookie.setMaxAge(60);
+                   passwordcookie.setMaxAge(60);
+                   remembermecookie.setMaxAge(60);
+                   //添加cookie
+                   response.addCookie(usernamecookie);
+                   response.addCookie(passwordcookie);
+                   response.addCookie(remembermecookie);
+
+               }
+               HttpSession session=request.getSession();
+               System.out.println("session id:"+session.getId());
+               session.setMaxInactiveInterval(60);//设置session过期时间为是10秒h
+               session.setAttribute("user",user);//session域中的set值可以用于多个jsp页面
+              // request.setAttribute("user",user);//request域中的set值只能用于下一个jsp页面
                request.getRequestDispatcher("WEB-INF/views/userinfo.jsp").forward(request,response);
            }else{
+               //登录名或密码错误提示信息并返回主页
                request.setAttribute("message","Username or Password Error!!!");
                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
            }
